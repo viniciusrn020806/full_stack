@@ -1,6 +1,6 @@
  .introducao{
-    background-color: bisque;
-    width: 1830px;
+    background-color: burlywood;
+    width: 1780px;
     height: 130px;
     text-align: center;
     justify-content: center;
@@ -31,15 +31,34 @@
 }
  .menu{background-color: lightskyblue;
     display: flex;
-    justify-content: space-around;
     
+    justify-content: space-evenly;
+    height: 50px; ;
+    align-items: center;
+    color: ;
  }
  
 h2 {text-align:center;
 
 }
- .textobase {font-size: 20px; ;
+ .textobase {font-size: 30px; 
+   color: indigo ;
+}
+   
+img#C {
+   position: absolute;
+   top: 90%;   
+   left: 13%;
+}
 
- }
+img#D {
+   position: absolute;
+   top: 90%;
+   left: 40%;
+} 
+img#E {
+   position: absolute;
+   top: 90%;
+   right: 13%;
 
- 
+}
