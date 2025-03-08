@@ -1,0 +1,45 @@
+ .introducao{
+    background-color: bisque;
+    width: 1830px;
+    height: 130px;
+    text-align: center;
+    justify-content: center;
+    padding: 32px;
+    border: 5px solid; 
+    display:flex;
+    color: indigo;
+
+ }
+ h1{ color:green
+
+
+ }
+
+ 
+ img#A {
+     position: absolute;
+     top: 4%;
+     left: 2%;
+}
+  img#B {
+      position: absolute;
+      top: 4%;
+      right: 1%;
+
+  } 
+  .fundo{background-color:lightgray;
+}
+ .menu{background-color: lightskyblue;
+    display: flex;
+    justify-content: space-around;
+    
+ }
+ 
+h2 {text-align:center;
+
+}
+ .textobase {font-size: 20px; ;
+
+ }
+
+ 
