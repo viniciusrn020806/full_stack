@@ -40,7 +40,6 @@
 
     justify-content: space-evenly;
     height: 50px;
-    ;
     align-items: center;
 
  }
@@ -94,22 +93,23 @@
     left: 25%;
  }
 
- .dashed {
-    border-style: dashed;
+ 
 
- }
+
 
  .dashed2 {
     border-style: dashed;
     align-items: center;
-    border: 2px dashed red;
+    border: 3px dashed red;
     width: 20%;
-    margin: 0 auto;
-    border-collapse: collapse;
+    margin:  auto;
+    
+  
  }
 
  .cor2 {
     color: red;
+
  }
 
  .fontes {
@@ -117,7 +117,7 @@
     width: 1000px;
     height: 130px;
     display: flex;
-    width: 25%;
+    width: 30%;
     margin: 0 auto;
     flex-direction: column;
 
@@ -130,13 +130,13 @@
 
  img#F {
     position: absolute;
-    top: 240%;
+    top: 270%;
     left: 1%;
  }
 
  img#G {
     position: absolute;
-    top: 240%;
+    top: 270%;
     right: 2%;
     width: 100px;
  }
@@ -144,4 +144,22 @@
  .ajuste {
     text-align: center;
     font-size: 20px;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+ 
  }
+ .final{
+   background-color: bisque;
+   width: 1880px;
+    height: 150px;
+ }
+
+
+
+ h5{
+   display: flex;
+   justify-content: center;
+ }
+.vermelho{
+   color: red;
+}
+ 
