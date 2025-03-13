@@ -114,12 +114,12 @@
 
  .fontes {
     background-color: yellow;
-    width: 1000px;
     height: 130px;
     display: flex;
     width: 30%;
     margin: 0 auto;
     flex-direction: column;
+    
 
  }
 
@@ -151,6 +151,7 @@
    background-color: bisque;
    width: 1880px;
     height: 150px;
+    
  }
 
 
