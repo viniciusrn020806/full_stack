@@ -1,0 +1,261 @@
+.inicio{
+    background-color: rgb(102, 74, 148);
+    width: 11%;
+    height: 20vh;
+    display: flex;
+    position: absolute;
+    left: 31%;
+    top: 3%;
+    
+    
+}
+.branco{
+    color: white;
+    font-size: 190%;
+    display: flex;
+    position: absolute;
+    top: 13%;
+    left: 10%;
+    
+    
+}
+
+.branco2{
+    color: white;
+    font-size: 240%;
+    display: flex;
+    position: absolute;
+    top: 35%;
+    left: 9%;
+    
+    
+  
+    
+   
+}
+.branco3{
+    color: white;
+    font-size: 240%;
+    display: flex;
+    position: absolute;
+    top: 55%;
+    left: 9%;
+}
+
+img#A{
+    width: 14%;;
+    height: 20vh; 
+    position: absolute;
+    top: 3%;
+    left: 42.4%;
+}
+
+img#B{ width: 11%;;
+    height: 20vh; 
+    position: absolute;
+    top: 3%;
+    left: 56.7%;
+
+}
+.posicao{
+    position: absolute;
+    left: 28.5%;
+    font-size: 160%;
+    top: 24%;
+}
+
+.posicao2{
+    position: absolute;
+    left: 38.9%;
+    font-size: 150%;
+    top: 24%;
+}
+.posicao3{
+   position: absolute;
+   left: 37.6%;
+   font-size: 160%;
+   top: 21.3%;
+}
+.posicao4{
+    position: absolute;
+    top: 21.3%;
+    font-size: 160%;
+    left: 49.7%;
+  
+}
+.posicao5{
+    position: absolute;
+    top: 23.9%;
+    font-size: 160%; ;
+    left: 51%;
+}
+
+hr{
+    border-color: indigo;
+    box-sizing: border-box;
+    position: absolute;
+    width: 100%;
+    top: 30%;
+   
+}
+
+.nome{
+    font-size: 160%;
+    position: absolute;
+    top: 30.5%;
+    left: 36%;
+    color: indigo;
+
+
+}
+
+.joey{
+    font-size: 160%;
+    position: absolute;
+    top: 33.2%;
+    left: 48.2%;
+    
+
+
+}
+.posicao6{ 
+    position: absolute;
+    top: 30.7%;
+    font-size: 160%;
+    left:51.3% ;
+  
+}
+.HiMYM{
+    position: absolute;
+    top: 33.5%;
+    font-size: 160%;
+    left:52.5% ;
+}
+.posicao7{
+    position: absolute;
+    top: 30.7%;
+    font-size: 160%;
+    left:58% ;
+}
+.TBBT{
+    position: absolute;
+    top: 33.5%;
+    font-size: 160%;
+    left:59% ;
+}
+img#C{
+    position: absolute;
+    top: 39%;
+    left: 30%;
+    width: 38%;
+
+}
+img#D{
+    position: absolute;
+    top: 53%;
+    left: 30%;
+    width: 20%;
+    height: 40%;
+}
+img#E{ 
+    position: absolute;
+    top: 53%;
+    left: 51%;
+    width: 20%;
+    height: 30%;
+
+}
+img#F{
+    position: absolute;
+    top: 85%;
+    left: 51%;
+    width: 13%;
+}
+.nome2{
+    position: absolute;
+    top: 93%;
+    font-size: 160%;
+    color: indigo;
+    left: 30%;
+}
+.link1{
+    position: absolute;
+    top: 108%;
+    left: 20%;
+    font-size: 150%;
+
+}
+.posicao8{
+    position: absolute;
+    top: 106%;
+    left: 34%;
+    font-size: 150%;
+
+
+}
+.link2{
+    position: absolute;
+    top: 108%;
+    left: 35%;
+    font-size: 150%;
+
+}
+.posicao9{
+    position: absolute;
+    top: 106%;
+    left: 42.4%;
+    font-size: 150%;
+
+
+}
+.link3{
+    position: absolute;
+    top: 108%;
+    left: 43.5%;
+    font-size: 150%;
+
+}
+.posicao10{
+    position: absolute;
+    top: 106%;
+    left: 52.8%;
+    font-size: 150%;
+}
+.link4{
+    position: absolute;
+    top: 108%;
+    left: 53.6%;
+    font-size: 150%;
+
+}
+.posicao11{
+    position: absolute;
+    top: 106%;
+    left: 58.7%;
+    font-size: 150%;
+}
+.link5{
+    position: absolute;
+    top: 108%;
+    left: 59.4%;
+    font-size: 150%;
+
+}
+.posicao12{
+    position: absolute;
+    top: 106%;
+    left: 64.3%;
+    font-size: 150%;
+}
+.link6{
+    position: absolute;
+    top: 108%;
+    left: 65.4%;
+    font-size: 150%;  
+}
+.link7{position: absolute;
+    top: 111%;
+    left: 40%;
+    font-size: 150%;  
+}
+
