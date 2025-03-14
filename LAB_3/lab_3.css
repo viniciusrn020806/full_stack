@@ -1,6 +1,6 @@
  .introducao {
     background-color: burlywood;
-    width: 1810px;
+    width: 96%;
     height: 130px;
     text-align: center;
     justify-content: center;
@@ -60,19 +60,19 @@
 
  img#C {
     position: absolute;
-    top: 90%;
+    top: 83%;
     left: 13%;
  }
 
  img#D {
     position: absolute;
-    top: 90%;
+    top: 83%;
     left: 40%;
  }
 
  img#E {
     position: absolute;
-    top: 90%;
+    top: 83%;
     right: 13%;
 
  }
@@ -130,15 +130,15 @@
 
  img#F {
     position: absolute;
-    top: 270%;
+    top: 248%;
     left: 1%;
  }
 
  img#G {
     position: absolute;
-    top: 270%;
+    top: 248%;
     right: 2%;
-    width: 100px;
+    width: 5%;
  }
 
  .ajuste {
