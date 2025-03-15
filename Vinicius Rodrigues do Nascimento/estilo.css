@@ -1,0 +1,321 @@
+/* Coloque aqui seu estilo css: */
+.inicio{
+    background-color: red;
+    width: 4%;
+    height: 4vh;
+    position: absolute;
+    left: 4%;
+    top: 3%;
+
+
+    
+}
+.tamanho{
+    font-size: 140%;
+    color: white;
+    position: absolute;
+    top: 12%;
+   left:7% ;
+    margin-top:0;
+}
+.posicao{
+    position: absolute;
+    top: 11%;
+    left: 4%;
+}
+.tamanho2{
+    font-size: 140%;
+    position: absolute;
+    top: 3.5%;
+  left: 10%;
+   color: gray;
+   margin-top:0;
+}
+.tamanho3{
+    font-size: 140%;
+    position: absolute;
+    top: 3.5%;
+  left: 15%;
+   color: gray;
+   margin-top: 0;
+   display: flex;
+  
+}
+.tamanho4{
+    font-size: 140%;
+    position: absolute;
+    top: 3.5%;
+  left: 23%;
+   color: gray;
+   margin-top: 0;
+   display: flex;
+
+}
+.tamanho5{
+    font-size: 140%;
+    position: absolute;
+    top: 3.5%;
+  left: 28.5%;
+   color: gray;
+   margin-top: 0;
+   display: flex;
+
+}
+.tamanho6{
+    font-size: 140%;
+    position: absolute;
+    top: 3.5%;
+  left: 34%;
+   color: gray;
+   margin-top: 0;
+   display: flex;
+
+}
+.tamanho7{
+    font-size: 140%;
+    position: absolute;
+    top: 3.5%;
+  left: 41.5%;
+   color: gray;
+   margin-top: 0;
+   display: flex;
+
+}
+.tamanho8{
+    font-size: 140%;
+    position: absolute;
+    top: 3.5%;
+    left: 50.5%;
+    color: gray;
+    margin-top: 0;
+   display: flex;
+
+}
+.tamanho9{
+    font-size: 140%;
+    position: absolute;
+    top: 3.5%;
+    left: 61.5%;
+    color: gray;
+    margin-top: 0;
+   display: flex;
+
+    
+}
+.posicao2{
+    position: absolute;
+    top: 13.2%;
+    left: 45%;
+    font-size: 140%;
+    color: gray;
+}
+.posicao3{
+    position: absolute;
+    top: 15.5%;
+    left: 48%;
+    font-size: 140%;
+    color: gray;
+
+}
+.hr1{
+    border-color: rgb(242, 248, 242);
+    box-sizing: border-box;
+    position: absolute;
+    width: 100%;
+    top: 10%;
+}
+.hr2{
+    border-color: black;
+    box-sizing: border-box;
+    position: absolute;
+    width: 37%;
+    top: 20%;
+    right: 18.3%;
+}
+.email{
+    position: absolute;
+    top: 13.2%;
+    left: 66%;
+    font-size: 140%;
+    color: gray;
+
+
+}
+.posicao4{
+    position: absolute;
+    top:20.2%;
+    font-size: 140%;
+    left: 47%;
+    color: gray;
+
+}
+.posicao5{
+    position: absolute;
+    top:20.2%;
+    font-size: 140%;
+    left: 55%;
+    color: gray;
+
+}
+.posicao6{
+    position: absolute;
+    top:20.2%;
+    font-size: 140%;
+    left: 63%;
+    color: gray;
+
+}
+.posicao7{
+    position: absolute;
+    top:20.2%;
+    font-size: 140%;
+    left: 71%;
+    color: gray;
+
+}    
+.posicao8{
+    position: absolute;
+    top:20.2%;
+    font-size: 140%;
+    left: 79%;
+    color: gray;
+
+}
+.hr3{
+   
+    border-color: rgb(246, 248, 248);
+    box-sizing: border-box ;
+    position: absolute;
+    width: 100%;
+    top: 30%;
+  
+
+}
+.texto{
+    position: absolute;
+    top: 30%;
+    font-size: 330%;
+    color: red;
+    left: 6%;
+}
+img#A{
+    position: absolute;
+    top: 50%;
+}
+.espaco{
+    background-color: red;
+    position: absolute;
+    top: 83%;
+    width: 32.5%;
+    height: 10%;
+}
+.espaco2{
+    position: absolute;
+    top: 5%;
+    left: 4%;
+    color: white;
+}
+.espaco3{
+    position: absolute;
+    top: 27%;
+    left: 4%;
+    color: white;
+}
+.espaco4{
+    position: absolute;
+    top: 5%;
+    left: 55%;
+    color: lightgray;
+
+}
+.espaco5{
+    position: absolute;
+    top: 27%;
+    left: 55%;
+    color: lightgray;
+
+}
+img#B{
+    position: absolute;
+    top: 50%;
+    left: 34.5%;
+}
+img#C{
+    position: absolute;
+    top: 50%;
+    left: 51.5%;
+
+}
+.posicao9{
+    position: absolute;
+    top: 70%;
+    left: 34.5%;
+    color: red;
+
+}
+.posicao10{
+    position: absolute;
+    top: 72%;
+    left: 34.5%;
+    color: red;
+
+}
+.posicao11{
+    position: absolute;
+    top: 70%;
+    left: 51.5%;
+    color: red;
+
+
+}
+.posicao12{
+    position: absolute;
+    top: 72%;
+    left: 51.5%;
+    color: red;
+
+}
+.posicao13{
+    position: absolute;
+    top: 74%;
+    left: 34.5%;
+    color: gray;
+
+}
+.posicao14{
+    position: absolute;
+    top: 74%;
+    left: 51.5%;
+    color: gray;
+
+}
+.hr4{
+    
+    border-color: rgb(246, 248, 248);
+    box-sizing: border-box ;
+    position: absolute;
+    width: 33%;
+    top: 85%;
+    left: 33%;
+}
+.posicao15{
+    position: absolute;
+    top: 87%;
+    left: 34.5%;
+    color: red;
+
+
+
+}
+.posicao16{
+    position: absolute;
+    top: 89%;
+    left: 34.5%;
+    color: red;
+
+}
+
+
+   
+
+
