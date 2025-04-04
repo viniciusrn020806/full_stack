@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numero aleatorio</title>
+    <style>
+        body {
+            text-align: center;
+            margin-top: 0;
+            justify-content: space-around;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Gerador de Numero</h1>
+    <input type="button" value="Gerar numero" onclick="gerarNumero()">
+    <div id="numero"></div>
+
+    <input type="text" id="numero1">
+    <input type="button" value="Clique aqui" onclick="verificacao()">
+    <p id="verificado">--</p>
+
+
+    <script type="text/javascript">
+        function gerarNumero() {
+            let numeroaleatorio = Math.floor(Math.random() * 51)
+            document.getElementById("numero").innerHTML = numeroaleatorio;
+        }
+
+
+
+
+
+
+
+        function verificacao() {
+            let numero1 = parseInt(document.getElementById("numero1").value);
+            let value = "";
+
+            if (numero1 > 0 && numero1 < 11) {
+                value = "insuficiente";
+            }
+            else if (numero1 > 10 && numero1 < 16) {  // Corrige a variável 'numero' para 'numero1'
+                value = "Bom";
+            } else if (numero1 > 15) {
+                value = "Muito Bom";
+            }
+
+            document.getElementById("verificado").innerHTML = value; // Corrige o id de 'vericado' para 'verificado'
+        }
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>
