@@ -4,8 +4,8 @@ let ctx = canvas.getContext ('2d')
 
 
 let neymar = {
-    x: 150,
-    y: 150,
+    x: 0,
+    y: 0,
     raio: 30,
     img: new Image(),
     desenha: function(){
@@ -16,7 +16,7 @@ let neymar = {
     }
 }
 function animacao(){
-    ctx.clearRect(0,0,300,300)
+    ctx.clearRect(0,0,400,400)
     neymar.desenha();
     requestAnimationFrame(animacao)
 }
@@ -26,12 +26,17 @@ document.addEventListener('mousemove',function(evento){
     let x_mouse = evento.clientX - rect.left;
     let y_mouse = evento.clientY - rect.top;
     console.log(x_mouse,y_mouse);
-    neymar.x = x_mouse;
-    neymar.y = y_mouse;
     
-    let limiteX = canvas.width - neymar.raio;  // Limite horizontal (direita)
-    let limiteY = canvas.height - neymar.raio;  // Limite vertical (baixo)
+    if (x_mouse >= 0 && x_mouse <= canvas.width && y_mouse >= 0 && y_mouse <= canvas.height)
+        {neymar.x = Math.max(neymar.raio, Math.min(x_mouse, canvas.width - neymar.raio));
+        neymar.y = Math.max(neymar.raio, Math.min(y_mouse, canvas.height - neymar.raio));
+    } else {
+       
+    }
+   
+   
+    
 
-  
+
 
 })
