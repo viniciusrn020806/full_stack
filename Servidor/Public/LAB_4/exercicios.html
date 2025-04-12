@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numero aleatorio</title>
+    <link href="lab_4.css" rel="stylesheet">
+<body>
+    
+ 
+    <h1>Jogo de Adivinhação</h1>
+  <p>Digite um número de 0 a 99:</p>
+
+  <input type="number" id="guess" min="0" max="99">
+  <button onclick="checkGuess()">Tentar</button>
+
+  <p id="message"></p> <!-- Aqui aparece o resultado -->
+
+  <script>
+    var randomNumber = Math.floor(Math.random() * 100); // número entre 0 e 99
+
+    function checkGuess() {
+      var guess = document.getElementById("guess").value;
+      var message = document.getElementById("message");
+
+      if (guess === "") {
+        message.textContent = "Digite um número!";
+        message.style.color = "red";
+      } else if (guess < randomNumber) {
+        message.textContent = "Tente um número maior!";
+        message.style.color = "red";
+      } else if (guess > randomNumber) {
+        message.textContent = "Tente um número menor!";
+        message.style.color = "red";
+      } else {
+        message.textContent = "Parabéns! Você acertou!";
+        message.style.color = "green";
+      }
+    }
+  </script>
+
+    
+
+
+</body>
+<table border="1">
+<tr class="tabela">
+    <td>Projeto HTML</td>
+    <td><a href="../LAB_2/Projeto.html">Clique aqui</a></td> 
+</tr>
+
+
+</html>

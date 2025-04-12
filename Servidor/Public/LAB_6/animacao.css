@@ -1,0 +1,9 @@
+#animacao{
+    background-color: aqua;
+    border: 2px solid;
+    border-color: black;
+align-items: center;
+margin-left: 43%;
+position: absolute;
+top: 30%;
+}
