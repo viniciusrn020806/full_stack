@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pong com Placar</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+    #score {
+      color: white;
+      font-family: Arial, sans-serif;
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+    canvas {
+      border: 2px solid #fff;
+      background: #111;
+    }
+  </style>
+</head>
+<body>
+  <div id="score">Jogador 1: 0 | Jogador 2: 0</div>
+  <canvas id="pong" width="800" height="500"></canvas>
+
+  <script>
+    const canvas = document.getElementById("pong");
+    const ctx = canvas.getContext("2d");
+    const scoreDisplay = document.getElementById("score");
+
+    // Objetos
+    const paddleWidth = 10, paddleHeight = 100;
+    const player1 = { x: 10, y: canvas.height / 2 - paddleHeight / 2, dy: 0, score: 0 };
+    const player2 = { x: canvas.width - 20, y: canvas.height / 2 - paddleHeight / 2, dy: 0, score: 0 };
+    const ball = {
+      x: canvas.width / 2,
+      y: canvas.height / 2,
+      radius: 8,
+      speed: 5,
+      dx: 5,
+      dy: 5
+    };
+
+    function movePaddles() {
+      player1.y += player1.dy;
+      player2.y += player2.dy;
+
+      [player1, player2].forEach(p => {
+        if (p.y < 0) p.y = 0;
+        if (p.y + paddleHeight > canvas.height) p.y = canvas.height - paddleHeight;
+      });
+    }
+
+    function drawRect(x, y, w, h, color = "#fff") {
+      ctx.fillStyle = color;
+      ctx.fillRect(x, y, w, h);
+    }
+
+    function drawBall() {
+      ctx.beginPath();
+      ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+      ctx.fillStyle = "#fff";
+      ctx.fill();
+      ctx.closePath();
+    }
+
+    function checkCollision(paddle) {
+      return (
+        ball.x - ball.radius < paddle.x + paddleWidth &&
+        ball.x + ball.radius > paddle.x &&
+        ball.y - ball.radius < paddle.y + paddleHeight &&
+        ball.y + ball.radius > paddle.y
+      );
+    }
+
+    function resetBall(scoredByPlayer) {
+      ball.x = canvas.width / 2;
+      ball.y = canvas.height / 2;
+      ball.dx = scoredByPlayer === 1 ? 5 : -5;
+      ball.dy = Math.random() > 0.5 ? 5 : -5;
+    }
+
+    function updateScoreboard() {
+      scoreDisplay.textContent = `Jogador 1: ${player1.score} | Jogador 2: ${player2.score}`;
+    }
+
+    function update() {
+      movePaddles();
+
+      ball.x += ball.dx;
+      ball.y += ball.dy;
+
+      if (ball.y - ball.radius < 0 || ball.y + ball.radius > canvas.height) {
+        ball.dy *= -1;
+      }
+
+      if (checkCollision(player1) || checkCollision(player2)) {
+        ball.dx *= -1;
+      }
+
+      if (ball.x < 0) {
+        player2.score++;
+        updateScoreboard();
+        resetBall(2);
+      }
+
+      if (ball.x > canvas.width) {
+        player1.score++;
+        updateScoreboard();
+        resetBall(1);
+      }
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      drawRect(player1.x, player1.y, paddleWidth, paddleHeight);
+      drawRect(player2.x, player2.y, paddleWidth, paddleHeight);
+      drawBall();
+    }
+
+    function loop() {
+      update();
+      draw();
+      requestAnimationFrame(loop);
+    }
+
+    loop();
+
+    document.addEventListener("keydown", e => {
+      switch (e.key) {
+        case "w": player1.dy = -6; break;
+        case "s": player1.dy = 6; break;
+        case "ArrowUp": player2.dy = -6; break;
+        case "ArrowDown": player2.dy = 6; break;
+      }
+    });
+
+    document.addEventListener("keyup", e => {
+      if (["w", "s"].includes(e.key)) player1.dy = 0;
+      if (["ArrowUp", "ArrowDown"].includes(e.key)) player2.dy = 0;
+    });
+  </script>
+</body>
+</html>

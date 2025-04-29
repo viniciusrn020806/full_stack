@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Futebol com Arquibancada Fora</title>
+  <style>
+    body {
+      margin: 0;
+      background: #111;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      color: white;
+    }
+
+    .arquibancada {
+      background: repeating-linear-gradient(45deg, #ccc, #ccc 10px, #999 10px, #999 20px);
+      width: 1200px;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 4px solid #444;
+    }
+
+    .placar {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    canvas {
+      border: 4px solid white;
+      background: linear-gradient(to right, #0a0, #060);
+      box-shadow: 0 0 20px #000;
+    }
+  </style>
+</head>
+<body>
+
+<div class="arquibancada">
+  <div class="placar" id="score1">Jogador 1: 0</div>
+  <div style="font-size: 18px;">🏟️ Arquibancada 🏟️</div>
+  <div class="placar" id="score2">Jogador 2: 0</div>
+</div>
+
+<canvas id="game" width="1200" height="600"></canvas>
+
+<script>
+  const canvas = document.getElementById("game");
+  const ctx = canvas.getContext("2d");
+
+  const score1Display = document.getElementById("score1");
+  const score2Display = document.getElementById("score2");
+
+  const field = { width: canvas.width, height: canvas.height };
+  const goalSize = 150;
+  const ball = { x: 600, y: 300, radius: 10, dx: 0, dy: 0 };
+
+  const player1 = { x: 100, y: 300, width: 20, height: 40, dx: 0, dy: 0, color: "blue" };
+  const player2 = { x: 1080, y: 300, width: 20, height: 40, dx: 0, dy: 0, color: "red" };
+
+  let score1 = 0;
+  let score2 = 0;
+
+  function drawField() {
+    ctx.fillStyle = "#080";
+    ctx.fillRect(0, 0, field.width, field.height);
+
+    // Centro
+    ctx.strokeStyle = "#fff";
+    ctx.beginPath();
+    ctx.moveTo(field.width / 2, 0);
+    ctx.lineTo(field.width / 2, field.height);
+    ctx.stroke();
+
+    // Gols
+    ctx.fillStyle = "#fff";
+    ctx.fillRect(0, field.height / 2 - goalSize / 2, 10, goalSize);
+    ctx.fillRect(field.width - 10, field.height / 2 - goalSize / 2, 10, goalSize);
+  }
+
+  function drawPlayer(p) {
+    ctx.fillStyle = p.color;
+    ctx.fillRect(p.x, p.y - p.height / 2, p.width, p.height);
+  }
+
+  function drawBall() {
+    ctx.beginPath();
+    ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+    ctx.fillStyle = "white";
+    ctx.fill();
+    ctx.closePath();
+  }
+
+  function movePlayers() {
+    [player1, player2].forEach(p => {
+      p.x += p.dx;
+      p.y += p.dy;
+
+      // Limites
+      if (p.x < 0) p.x = 0;
+      if (p.x + p.width > field.width) p.x = field.width - p.width;
+      if (p.y - p.height / 2 < 0) p.y = p.height / 2;
+      if (p.y + p.height / 2 > field.height) p.y = field.height - p.height / 2;
+    });
+  }
+
+  function moveBall() {
+    ball.x += ball.dx;
+    ball.y += ball.dy;
+
+    // Fricção
+    ball.dx *= 0.98;
+    ball.dy *= 0.98;
+
+    // Bordas
+    if (ball.y - ball.radius <= 0 || ball.y + ball.radius >= field.height) {
+      ball.dy *= -1;
+    }
+
+    if (ball.x - ball.radius <= 0 && ball.y > field.height / 2 - goalSize / 2 && ball.y < field.height / 2 + goalSize / 2) {
+      score2++;
+      updateScore();
+      resetBall();
+    }
+
+    if (ball.x + ball.radius >= field.width && ball.y > field.height / 2 - goalSize / 2 && ball.y < field.height / 2 + goalSize / 2) {
+      score1++;
+      updateScore();
+      resetBall();
+    }
+
+    if (ball.x < 0 || ball.x > field.width) {
+      ball.dx *= -1;
+    }
+  }
+
+  function kickBall(player) {
+    const dx = ball.x - player.x;
+    const dy = ball.y - player.y;
+    const dist = Math.sqrt(dx * dx + dy * dy);
+    if (dist < 40) {
+      ball.dx = (ball.x - player.x) * 0.4;
+      ball.dy = (ball.y - player.y) * 0.4;
+    }
+  }
+
+  function resetBall() {
+    ball.x = field.width / 2;
+    ball.y = field.height / 2;
+    ball.dx = 0;
+    ball.dy = 0;
+  }
+
+  function updateScore() {
+    score1Display.textContent = `Jogador 1: ${score1}`;
+    score2Display.textContent = `Jogador 2: ${score2}`;
+  }
+
+  function gameLoop() {
+    ctx.clearRect(0, 0, field.width, field.height);
+    drawField();
+    movePlayers();
+    moveBall();
+    drawPlayer(player1);
+    drawPlayer(player2);
+    drawBall();
+    requestAnimationFrame(gameLoop);
+  }
+
+  document.addEventListener("keydown", e => {
+    switch (e.key) {
+      case "a": player1.dx = -4; break;
+      case "d": player1.dx = 4; break;
+      case "w": player1.dy = -4; break;
+      case "s": player1.dy = 4; break;
+      case " ": kickBall(player1); break;
+
+      case "ArrowLeft": player2.dx = -4; break;
+      case "ArrowRight": player2.dx = 4; break;
+      case "ArrowUp": player2.dy = -4; break;
+      case "ArrowDown": player2.dy = 4; break;
+      case "Enter": kickBall(player2); break;
+    }
+  });
+
+  document.addEventListener("keyup", e => {
+    if (["a", "d"].includes(e.key)) player1.dx = 0;
+    if (["w", "s"].includes(e.key)) player1.dy = 0;
+    if (["ArrowLeft", "ArrowRight"].includes(e.key)) player2.dx = 0;
+    if (["ArrowUp", "ArrowDown"].includes(e.key)) player2.dy = 0;
+  });
+
+  resetBall();
+  gameLoop();
+</script>
+</body>
+</html>
