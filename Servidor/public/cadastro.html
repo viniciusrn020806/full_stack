@@ -1,21 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="estilo.css" rel="stylesheet">
-    <title>servidor dinamico</title>
+  <meta charset="UTF-8" />
+  <link href="estilo.css" rel="stylesheet">
+  <title>Cadastro</title>
 </head>
 <body>
-    
+  <h2>Cadastrar usuário</h2>
+  <form action="/cadastrar_usuario" method="post">
+  <input type="text" name="nome" required>
+  <input type="password" name="senha" required>
+  <input type="submit" value="Cadastrar">
+</form>
+
+  <a href="login.html">Já tem login? Faça login aqui!</a>
 </body>
 </html>
-
-
-<h2>Cadastrar usuário</h2>
-<form method="post" action="/cadastro">
-<p>Nome: <input type="text" name="nome"></p>
-<p>Senha: <input type="text" name="senha"></p>
-
-<input type="submit" value="Salvar">
-</form>

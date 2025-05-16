@@ -16,62 +16,53 @@ app.set('view engine', 'ejs');
 app.set('views', './views');
 
 const server = http.createServer(app);
-server.listen(80, () => console.log('Servidor rodando...'.rainbow));
+server.listen(3000, () => console.log('Servidor rodando na porta 3000...'.rainbow));
 
 client.connect().then(() => {
   const dbo = client.db("exemplo_bd");
   const usuarios = dbo.collection("usuarios");
 
-  // Rota para cadastrar novo usuário
-  app.post("/cadastrar_usuario", function (req, resp) {
-    const data = { db_login: req.body.nome, db_senha: req.body.senha };
+  // Rota para cadastrar novo usuário (usada no formulário)
+  app.post("/cadastrar_usuario", (req, res) => {
+    const nome = req.body.nome;
+    const senha = req.body.senha;
 
-    usuarios.insertOne(data, function (err) {
+    const data = { db_login: nome, db_senha: senha };
+    console.log('Tentando cadastrar usuário:', data);
+
+    usuarios.insertOne(data, (err, result) => {
       if (err) {
-        resp.render('resposta_usuario', { resposta: "Erro ao cadastrar usuário!" });
+        console.error('Erro ao cadastrar usuário:', err);
+        res.render('resposta_usuario', { resposta: "Erro ao cadastrar usuário!" });
       } else {
-        resp.render('resposta_usuario', { resposta: "Usuário cadastrado com sucesso!", nome: req.body.nome });
+        console.log('Usuário cadastrado com sucesso. ID:', result.insertedId);
+        res.render('resposta_usuario', { resposta: "Usuário cadastrado com sucesso!", nome });
       }
     });
   });
 
   // Rota para login de usuário
-  app.post("/logar_usuario", function (req, resp) {
-    const data = { db_login: req.body.login, db_senha: req.body.senha };
+  app.post("/logar_usuario", (req, res) => {
+    const nome = req.body.login;
+    const senha = req.body.senha;
 
-    usuarios.find(data).toArray(function (err, items) {
+    const data = { db_login: nome, db_senha: senha };
+    console.log('Tentando logar usuário com:', data);
+
+    usuarios.find(data).toArray((err, items) => {
       if (err) {
-        resp.render('resposta_erro', { resposta: "Erro ao logar usuário!" });
-      } else if (items.length == 0) {
-        resp.render('resposta_erro', { resposta: "Usuário/senha não encontrado!" });
+        console.error('Erro ao logar usuário:', err);
+        res.render('resposta_erro', { resposta: "Erro ao logar usuário!" });
+      } else if (items.length === 0) {
+        console.log('Usuário/senha não encontrado para:', data);
+        res.render('resposta_erro', { resposta: "Usuário/senha não encontrado!" });
       } else {
-        resp.render('resposta_usuario', { resposta: "Usuário logado com sucesso!", nome: req.body.login });
+        console.log('Usuário logado com sucesso:', items[0]);
+        res.render('resposta_usuario', { resposta: "Usuário logado com sucesso!", nome });
       }
     });
   });
 
-   // ✅ NOVA ROTA PARA FORMULÁRIO DE CADASTRO COMPLETO (nome, sobrenome, etc.)
-  app.post("/cadastro", function (req, res) {
-    console.log(req.body); // veja o que está chegando
-    const nome = req.body.nome;
-    const senha = req.body.senha;
-    
-    console.log("Dados recebidos:", req.body);
-    console.log("Renderizando com senha =", req.body.senha);
-
-    res.render('resposta_cadastro', { 
-      nome, 
-      senha 
-    });
-
-    // Se quiser salvar em uma nova coleção:
-    // const pessoas = dbo.collection("pessoas");
-    // pessoas.insertOne({ nome, sobrenome, nascimento, civil, senha });
-  });
-
-}); // <-- fechamento correto do .then()
-
-// 🔴 O .catch precisa ficar fora do .then()
-client.connect().catch(err => {
+}).catch(err => {
   console.error("Erro ao conectar no MongoDB:", err);
 });
