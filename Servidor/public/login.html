@@ -4,20 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="estilo.css" rel="stylesheet">
-    <title>Document</title>
+    <title>Login</title>
 </head>
 <body>
-    
-</body>
-</html>
 
-<h2>login</h2>
-<form action="/login" method="get">
-<p>Digite nome: <input type="text" name="info"></p>    
-<p>Digite senha: <input type="text" name="info"></p>
-<input type="submit" value="Entrar">
-<p>Não possui login?</p> 
-
+<h2>Login</h2>
+<form action="/logar_usuario" method="post">
+    <p>Digite nome: <input type="text" name="login" required></p>    
+    <p>Digite senha: <input type="password" name="senha" required></p>
+    <input type="submit" value="Entrar">
+    <p>Não possui login?</p> 
 </form>
 
 <a href="cadastro.html" class="btn">Cadastre aqui!</a>
@@ -40,3 +36,6 @@
     background-color: #0056b3;
   }
 </style>
+
+</body>
+</html>
