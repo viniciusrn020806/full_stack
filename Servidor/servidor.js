@@ -58,7 +58,7 @@ app.post("/cadastrar_usuario", function(req, resp) {
 
 
 app.get('/', function (requisicao, resposta){
-resposta.redirect('home.html')
+resposta.redirect('login.html')
 })
 
 app.get('/inicio', function (requisicao, resposta){
