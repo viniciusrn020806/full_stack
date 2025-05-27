@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Editar Carro</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <h1>Editar Carro</h1>
+  <form action="/atualizar/<%= carro._id %>" method="POST">
+    <input type="text" name="marca" value="<%= carro.marca %>" required>
+    <input type="text" name="modelo" value="<%= carro.modelo %>" required>
+    <input type="number" name="ano" value="<%= carro.ano %>" required>
+    <input type="number" name="qtde_disponivel" value="<%= carro.qtde_disponivel %>" required>
+    <button type="submit">Atualizar</button>
+  </form>
+  <p><a href="/gerenciar">Voltar para Gerenciar Carros</a></p>
+ <style>
+    body {
+    background-color: #f0f0f0; /* Cor de fundo */
+    text-align: center;        /* Centralização */
+    font-family: Arial;
+  }
+  
+  input, textarea {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    width: 300px;
+  }
+  
+  button {
+    padding: 10px 20px;
+  }
+  
+  .post {
+    background: white;
+    margin: 20px auto;
+    padding: 20px;
+    width: 60%;
+    border-radius: 10px;
+  }
+  </style>
+</body>
+</html>

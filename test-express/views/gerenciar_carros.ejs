@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gerenciar Carros</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <h1>Gerenciar Carros</h1>
+  <a href="/carros">Voltar para Carros</a>
+  <h2>Cadastrar Novo Carro</h2>
+  <form action="/carros/novo" method="POST">
+    <input type="text" name="marca" placeholder="Marca" required>
+    <input type="text" name="modelo" placeholder="Modelo" required>
+    <input type="number" name="ano" placeholder="Ano" required>
+    <input type="number" name="qtde_disponivel" placeholder="Quantidade" required>
+    <button type="submit">Cadastrar</button>
+  </form>
+  <h2>Carros Cadastrados</h2>
+  <table border="1" cellpadding="10">
+    <tr>
+      <th>Marca</th>
+      <th>Modelo</th>
+      <th>Ano</th>
+      <th>Quantidade</th>
+      <th>Ações</th>
+    </tr>
+    <% carros.forEach(carro => { %>
+    <tr>
+      <td><%= carro.marca %></td>
+      <td><%= carro.modelo %></td>
+      <td><%= carro.ano %></td>
+      <td><%= carro.qtde_disponivel %></td>
+      <td>
+        <a href="/editar/<%= carro._id %>">Editar</a>
+        <form action="/remover/<%= carro._id %>" method="POST" style="display:inline;">
+          <button type="submit" onclick="return confirm('Remover este carro?')">Remover</button>
+        </form>
+      </td>
+    </tr>
+    <% }) %>
+  </table>
+ <style>
+    body {
+    background-color: #f0f0f0; /* Cor de fundo */
+    text-align: center;        /* Centralização */
+    font-family: Arial;
+  }
+  
+  input, textarea {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    width: 300px;
+  }
+  
+  button {
+    padding: 10px 20px;
+  }
+  
+  .post {
+    background: white;
+    margin: 20px auto;
+    padding: 20px;
+    width: 60%;
+    border-radius: 10px;
+  }
+  </style>
+</body>
+</html>

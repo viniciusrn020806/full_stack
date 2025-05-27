@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Carros Disponíveis</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <h1>Carros Disponíveis</h1>
+  <a href="/gerenciar">Gerenciar Carros</a><br><br>
+  <table border="1" cellpadding="10">
+    <tr>
+      <th>Marca</th>
+      <th>Modelo</th>
+      <th>Ano</th>
+      <th>Quantidade</th>
+      <th>Vender</th>
+    </tr>
+    <% carros.forEach(carro => { %>
+    <tr>
+      <td><%= carro.marca %></td>
+      <td><%= carro.modelo %></td>
+      <td><%= carro.ano %></td>
+      <td>
+        <% if(carro.qtde_disponivel > 0) { %>
+          <%= carro.qtde_disponivel %>
+        <% } else { %>
+          <span style="color:red;">Esgotado</span>
+        <% } %>
+      </td>
+      <td>
+        <% if(carro.qtde_disponivel > 0) { %>
+          <form action="/vender/<%= carro._id %>" method="POST" style="margin:0;">
+            <button type="submit">Vender</button>
+          </form>
+        <% } else { %>
+          ---
+        <% } %>
+      </td>
+    </tr>
+    <% }) %>
+  </table>
+ <style>
+    body {
+    background-color: #f0f0f0; /* Cor de fundo */
+    text-align: center;        /* Centralização */
+    font-family: Arial;
+  }
+  
+  input, textarea {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    width: 300px;
+  }
+  
+  button {
+    padding: 10px 20px;
+  }
+  
+  .post {
+    background: white;
+    margin: 20px auto;
+    padding: 20px;
+    width: 60%;
+    border-radius: 10px;
+  }
+  </style>
+</body>
+</html>
